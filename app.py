@@ -28,7 +28,7 @@ def convert(message: telebot.types.Message):
             raise APIException('Слишком много или мало параметров')
 
         quote, base, amount = values
-        total_base = СurrencyConverter.convert(quote, base, amount)
+        total_base = СurrencyConverter.get_price(quote, base, amount)
     except APIException as e:
         bot.reply_to(message, f'Ошибка пользователя: {e}')
     except Exception as e:
